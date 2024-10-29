@@ -1,0 +1,33 @@
+app:
+    name: axonserver
+    code: AXONSERVER
+    notify: aramanan@ecloudcontrol.com
+build:
+    version: 24.1
+    env: DEV
+    build_file: none
+    output_files: output/*.zip
+    image_template: axonserver-24.1
+
+deploy:
+    context: aryam21/DEV
+    replicas: 1
+    port:
+    - 8024
+    - 8124
+properties:
+  AXON_USER: admin
+  AXON_ROLE: ADMIN
+  DISABLE_FLUENTD: 0
+  NODE_MODE: single-node
+  AXON_ADMIN_PASSWORD:
+    vault: AXON_ADMIN_PASSWORD
+  AXON_SERVER_TOKEN:
+    vault: AXON_SERVER_TOKEN
+  PRIVATE_KEY_FILE:
+    vault: PRIVATE_KEY_FILE
+  CERT_FILE:
+    vault: CERT_FILE     
+  AXON_ENDPOINT: "http://localhost:8024"
+  REPLICATION: 1
+  revision: 2
