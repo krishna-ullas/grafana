@@ -20,6 +20,7 @@ properties:
   AXON_ROLE: ADMIN
   DISABLE_FLUENTD: 0
   NODE_MODE: single-node
+  AXON_HOME: /axonserver
   AXON_ADMIN_PASSWORD:
     vault: AXON_ADMIN_PASSWORD
   AXON_SERVER_TOKEN:
