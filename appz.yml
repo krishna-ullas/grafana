@@ -10,7 +10,7 @@ build:
     image_template: axonserver-24.1
 
 deploy:
-    context: alpha/PROD
+    context: cloudorbit/PROD
     replicas: 1
     port:
     - 8024
