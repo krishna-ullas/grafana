@@ -31,4 +31,4 @@ properties:
     vault: CERT_FILE     
   AXON_ENDPOINT: "http://localhost:8024"
   REPLICATION: 1
-  revision: 10
+  revision: 11
