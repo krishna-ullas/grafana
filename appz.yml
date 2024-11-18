@@ -45,4 +45,4 @@ properties:
   AXON_ENDPOINT: "http://localhost:8024"
   AXONIQ_AXONSERVER_STANDALONE: false
   REPLICATION: 3
-  revision: 19
+  revision: 20
