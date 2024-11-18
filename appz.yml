@@ -4,13 +4,13 @@ app:
     notify: aramanan@ecloudcontrol.com
 build:
     version: 24.1
-    env: PROD
+    env: DEV
     build_file: none
     output_files: output/*.zip
     image_template: axonserver-24.1
 
 deploy:
-    context: cloudorbit/PROD
+    context: aryam21/DEV
     type: statefulset
     replicas: 3
     port:
