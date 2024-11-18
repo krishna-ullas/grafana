@@ -46,4 +46,4 @@ properties:
   - name: AXONIQ_AXONSERVER_STANDALONE
           value: "false"
   REPLICATION: 3
-  revision: 17
+  revision: 18
