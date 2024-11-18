@@ -43,5 +43,7 @@ properties:
   CERT_FILE:
     vault: CERT_FILE     
   AXON_ENDPOINT: "http://localhost:8024"
+  - name: AXONIQ_AXONSERVER_STANDALONE
+          value: "false"
   REPLICATION: 3
   revision: 17
