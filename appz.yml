@@ -17,7 +17,7 @@ deploy:
     - 8024
     - 8124
     - 8224
- volumes:
+volumes:
   - claim: axon-home
     mount: /appz/home
     name: home
