@@ -11,7 +11,7 @@ build:
 
 deploy:
     context: cloudorbit/PROD
-    replicas: 1
+    replicas: 3
     port:
     - 8024
     - 8124
@@ -20,7 +20,7 @@ properties:
   AXON_USER: admin
   AXON_ROLE: ADMIN
   DISABLE_FLUENTD: 0
-  NODE_MODE: single-node
+  NODE_MODE: multi-node
   AXON_HOME: /axonserver
   AXON_ADMIN_PASSWORD:
     vault: AXON_ADMIN_PASSWORD
@@ -31,5 +31,5 @@ properties:
   CERT_FILE:
     vault: CERT_FILE     
   AXON_ENDPOINT: "http://localhost:8024"
-  REPLICATION: 1
+  REPLICATION: 3
   revision: 13
