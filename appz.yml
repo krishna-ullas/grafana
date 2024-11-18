@@ -17,6 +17,17 @@ deploy:
     - 8024
     - 8124
     - 8224
+ volumes:
+  - claim: axon-home
+    mount: /appz/home
+    name: home
+    size: 5Gi
+    matchLabels: false
+  - claim: axon-data
+    mount: /appz/data
+    name: data
+    size: 5Gi
+    matchLabels: false   
 properties:
   AXON_USER: admin
   AXON_ROLE: ADMIN
