@@ -44,5 +44,5 @@ properties:
     vault: CERT_FILE     
   AXON_ENDPOINT: "http://localhost:8024"
   AXONIQ_AXONSERVER_STANDALONE: "false"
-  REPLICATION: 11
+  REPLICATION: 12
   revision: 3
