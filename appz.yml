@@ -3,7 +3,7 @@ app:
     code: AXONSERVER
     notify: aramanan@ecloudcontrol.com
 build:
-    version: 24.1
+    version: 24.01
     env: PROD
     build_file: none
     output_files: output/*.zip
@@ -45,5 +45,5 @@ properties:
     vault: CERT_FILE     
   AXON_ENDPOINT: "http://localhost:8024"
   AXONIQ_AXONSERVER_STANDALONE: "false"
-  REPLICATION: 1
+  REPLICATION: 3
   revision: 7
