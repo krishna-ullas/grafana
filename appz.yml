@@ -43,7 +43,7 @@ properties:
     vault: PRIVATE_KEY_FILE
   CERT_FILE:
     vault: CERT_FILE     
-  AXON_ENDPOINT: "http://cloudorbit-prod-axon-server-24-01.acebaef3.lowtouch.cloud"
+  AXON_ENDPOINT: "http://localhost:8024"
   AXONIQ_AXONSERVER_STANDALONE: "false"
   REPLICATION: 1
   revision: 2
