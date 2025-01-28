@@ -1,50 +1,42 @@
 app:
-    name: axonserver
-    code: AXONSERVER
-    notify: aramanan@ecloudcontrol.com
+    name: grafana
+    code: Grafana
+    notify: appzdev@cloudbourne.co
+    
 build:
-    version: 24.01
-    env: PROD
+    version: 10.4
+    env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: axonserver-24.1
-
+    image_template: grafana-10.4
+    
 deploy:
-    context: cloudorbit/PROD
+    context: krishna-ullas/DEV
     type: statefulset
-    replicas: 3
+    replicas: 1
     port:
-    - 8024
-    - 8124
-    - 8224
+    - 3000
+
 volumes:
-  - claim: axon-home
-    mount: /appz/home
-    name: home
-    size: 5Gi
-    matchLabels: false
-  - claim: axon-data
+  - claim: grafana-data
     mount: /appz/data
     name: data
     size: 5Gi
-    matchLabels: false   
+
 properties:
-  AXON_USER: admin
-  AXON_ROLE: ADMIN
-  DISABLE_FLUENTD: 0
-  NODE_MODE: multi-node
-  AXON_HOME: /axonserver
-  AXON_ADMIN_PASSWORD:
-    vault: AXON_ADMIN_PASSWORD
-  AXON_SERVER_TOKEN:
-    vault: AXON_SERVER_TOKEN
-  AXONIQ_LICENSE: /axonserver/config/axonserver-license.key
-  PRIVATE_KEY_FILE:
-    vault: PRIVATE_KEY_FILE
-  CERT_FILE:
-    vault: CERT_FILE     
-  AXON_ENDPOINT: "http://localhost:8024"
-  AXONIQ_AXONSERVER_STANDALONE: "false"
-  REPLICATION: 1
-  revision: 3
-  
+    ADMIN_PASSWORD:     
+       vault: ADMIN_PASSWORD
+    PROM_URL: http://prometheus-2-45:9090/
+    GF_AUTH_GENERIC_OAUTH_ENABLED: true
+    GF_AUTH_GENERIC_OAUTH_NAME: AppZ 
+    GF_AUTH_GENERIC_OAUTH_CLIENT_ID: grafana
+    GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: 
+      vault: GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET
+    GF_AUTH_GENERIC_OAUTH_SCOPES: openid profile email  
+    GF_AUTH_GENERIC_OAUTH_AUTH_URL: https://appz-qa.lowtouchcloud.io/openid/authorize 
+    GF_AUTH_GENERIC_OAUTH_TOKEN_URL: https://appz-qa.lowtouchcloud.io/openid/token 
+    GF_AUTH_GENERIC_OAUTH_API_URL: https://appz-qa.lowtouchcloud.io/openid/userinfo 
+    GF_AUTH_GENERIC_OAUTH_NAME_ATTRIBUTE_PATH: anyname
+    GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: contains(roles[*], 'admin') && 'Admin' || 'Viewer'
+    GF_SERVER_ROOT_URL: https://krishna-ullas-grafana-10-4-qa.lowtouchcloud.io
+    revision: 15
